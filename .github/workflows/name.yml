@@ -1,0 +1,30 @@
+name: Run DuoXPy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run DuoXPy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_LESSONS: ${{ secrets.GITHUB_LESSONS }}
+        run: |
+          python duo_x_py.py
+
+      - name: Clean up
+        if: always()
+        run: |
+          rm -rf config
