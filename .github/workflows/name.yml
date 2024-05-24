@@ -22,7 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_LESSONS: ${{ secrets.GITHUB_LESSONS }}
         run: |
-          python duo_x_py.py
+          python DuoXPy.py
 
       - name: Clean up
         if: always()
