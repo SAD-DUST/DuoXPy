@@ -1,4 +1,4 @@
-name: Run DuoXP
+name: Run DuoXP Manual
 
 on:
   workflow_dispatch:
